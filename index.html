@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Responsive Side Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <span class="open-slide">
+      <a id="nav-trigger" href="#">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+
+    <ul class="navbar-nav">
+      <li><a href="#">Find My Bathroom</a></li>
+    </ul>
+  </nav>
+
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a href="#">peter</a>
+    <a href="#">cielo</a>
+    <a href="#">blah</a>
+  </div>
+
+  <main id="main">
+    <div class="map-contianer">
+      <div id="map"></div>
+      <div id="top" class="top">location</div>
+      <div id="bottom directionsPanel" class="bottom">directions</div>
+
+    </div>
+  </main>
+  
+  <button class="btn" id="btn-modal">開く</button>
+
+<div class="overlay" id="overlay"></div>
+<div class="modal" id="modal">
+  <button class="modal-close-btn" id="close-btn"><i class="fa fa-times" title="閉じる"></i></button>
+  Your lcoation is required for this app to function.
+  <button id="modal-location-trigger">OK</button>
+</div>
+
+    <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5jy-9XEclPOh-Z8wrmT3S8SESbkUqit0&callback=initMap">
+  </script>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
