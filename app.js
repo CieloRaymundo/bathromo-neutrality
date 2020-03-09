@@ -199,6 +199,17 @@ function initMap() {
                     return makeInfoWindowEvent(ourMap, infowindow, contentString, newMarker)
                     return newMarker;
                 }));
+                
+                
+                //reverseGeo
+                reverseGeocoding(ourSession.userLocation['latitude'], ourSession.userLocation['longitude'])
+                    .then(name => name.split(','))
+                    .then(address => {
+                        const startTab = document.getElementById('start');
+                        startTab.options[0].text = address[0] + address[1];
+                        startTab.options[0].value =  address[0] + address[1] + address[2];
+                    });
+                
         });
     }
 }
@@ -323,7 +334,6 @@ function reverseGeocoding(lat, long) {
     fetch(`https://us1.locationiq.com/v1/reverse.php?key=48447f262ef7c7&lat=${lat}&lon=${long}&format=json`)
         .then(response => response.json())
         .then(json => {
-            // console.log(json.display_name)
             return json.display_name;
         })
 }
